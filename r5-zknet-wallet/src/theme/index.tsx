@@ -46,7 +46,7 @@ export const marginHigh = "15px";
 export const marginUpDownSpacing = "50px auto 50px auto";
 export const defaultGap = "10px";
 
-export const buttonWidthDefault = "250px";
+export const buttonWidthDefault = "auto";
 export const buttonWidthFull = "100%";
 export const buttonPaddingDefault = "15px 20px 15px 20px";
 export const buttonBorder = `1px solid ${colorTransparent}`;
@@ -204,4 +204,8 @@ export const Divider = styled.div`
   margin: ${marginZero};
   border-bottom: ${borderLight};
   width: 100%;
+`;
+
+export const Spacer = styled.div`
+  margin: 3px;
 `;
