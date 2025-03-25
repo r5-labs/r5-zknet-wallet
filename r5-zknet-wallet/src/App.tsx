@@ -1,16 +1,29 @@
-import React from "react";
-import logo from "./logo.svg";
 import "./App.css";
-import { ButtonPrimary, ButtonSecondary, Link } from "./theme";
+import {
+  Box,
+  BoxSection,
+  Divider,
+  Link
+} from "./theme";
+import { Header } from "./components/Header";
+import { ActionBar } from "./components/ActionBar";
+import { Balance } from "./components/Balance";
 
 function App() {
   return (
     <div className="App">
-      <h1>R5 ZKNet Wallet</h1>
-      <ButtonPrimary>Primary Button</ButtonPrimary>
-      <ButtonSecondary>Secondary Button</ButtonSecondary>
-      <Link href="#">Link</Link>
-      Text
+      <Box>
+        <Header />
+        <Divider />
+        <BoxSection>
+        <Balance />
+        <ActionBar />
+        </BoxSection>
+        <Divider />
+        <BoxSection>
+        <Link href="#">Need help with your ZKNet wallet?</Link>
+        </BoxSection>
+      </Box>
     </div>
   );
 }
