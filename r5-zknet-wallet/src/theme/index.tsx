@@ -160,7 +160,7 @@ export const Box = styled.div`
   border: ${borderDefault};
   background: ${colorBoxBackground};
   width: 40vw;
-  min-width: 500px;
+  min-width: 320px;
   justify-content: flex-start;
   align-items: center;
   gap: ${defaultGap};
