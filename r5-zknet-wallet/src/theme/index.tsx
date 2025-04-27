@@ -221,6 +221,7 @@ export const ButtonRound = styled.button`
 
 export const Link = styled.a`
   text-decoration: none;
+  font-size: 12pt;
   color: ${colorPrimary};
   &:hover {
     text-decoration: underline;
@@ -291,7 +292,7 @@ export const BoxContentParent = styled.div`
   width: 100%;
   justify-content: center;
   align-items: center;
-  gap: ${defaultGap};
+  gap: 5px;
 `;
 
 export const BoxContent = styled.div`
@@ -300,7 +301,7 @@ export const BoxContent = styled.div`
   width: 100%;
   justify-content: center;
   align-items: center;
-  gap: ${defaultGap};
+  gap: 5px;
   z-index: 2;
 `;
 

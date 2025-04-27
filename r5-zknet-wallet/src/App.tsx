@@ -1,6 +1,5 @@
 import "./App.css";
 import {
-  Box,
   BoxSection,
   Divider,
   FullContainerBox,
@@ -17,18 +16,18 @@ function App() {
     <div className="App">
       <FullPageBox>
         <FullContainerBox>
-        <Header />
-        <Divider />
-        <BoxSection>
-        <Balance />
-        <ActionBar />
-        </BoxSection>
-        <Divider />
-        <BoxSection>
-          <TxHistory />
+          <Header />
           <Divider />
-        <Link href="#">Need help with your ZKNet wallet?</Link>
-        </BoxSection>
+          <BoxSection>
+            <Balance />
+            <ActionBar />
+          </BoxSection>
+          <Divider />
+          <BoxSection>
+            <TxHistory />
+          </BoxSection>
+          <Divider />
+            <Link href="#">Need help with your ZKNet wallet?</Link>
         </FullContainerBox>
       </FullPageBox>
     </div>

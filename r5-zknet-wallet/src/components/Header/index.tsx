@@ -17,7 +17,7 @@ export function Header() {
           <ButtonSecondary>Connect Wallet</ButtonSecondary>
         </BoxContent>
         <Spacer />
-        <BoxContent><StealthIcon />0xABC...XYZ</BoxContent>
+        <BoxContent><StealthIcon />zkABC...XYZ</BoxContent>
       </BoxContentParent>
     </BoxHeader>
   );

@@ -36,7 +36,7 @@ body {
   align-items: stretch;
   justify-content: center;
   width: 100%;
-  min-width: 640px;
+  min-width: 100%;
 }
 
 h1 {

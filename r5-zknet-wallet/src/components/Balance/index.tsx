@@ -6,7 +6,7 @@ export function Balance() {
     <BoxContentParent>
       <BoxContent>
         <img src={R5Logo} alt="logo" />
-        <TextHeader style={{ margin: '0' }}>0.0000</TextHeader>
+        <TextHeader style={{ margin: "0" }}>0.0000</TextHeader>
       </BoxContent>
       <Spacer />
       <BoxContent />
