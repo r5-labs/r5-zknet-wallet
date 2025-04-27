@@ -2,7 +2,7 @@
   text-align: center;
   background-color: #282c34;
   background: radial-gradient(circle, rgba(37,55,66,1) 0%, rgba(22,34,43,1) 100%);
-  min-height: 100vh;
+  min-height: calc(100vh - 40px);
   display: flex;
   flex-direction: column;
   align-items: center;

@@ -3,16 +3,20 @@ import {
   Box,
   BoxSection,
   Divider,
+  FullContainerBox,
+  FullPageBox,
   Link
 } from "./theme";
 import { Header } from "./components/Header";
 import { ActionBar } from "./components/ActionBar";
 import { Balance } from "./components/Balance";
+import { TxHistory } from "./components/TxHistory";
 
 function App() {
   return (
     <div className="App">
-      <Box>
+      <FullPageBox>
+        <FullContainerBox>
         <Header />
         <Divider />
         <BoxSection>
@@ -21,9 +25,12 @@ function App() {
         </BoxSection>
         <Divider />
         <BoxSection>
+          <TxHistory />
+          <Divider />
         <Link href="#">Need help with your ZKNet wallet?</Link>
         </BoxSection>
-      </Box>
+        </FullContainerBox>
+      </FullPageBox>
     </div>
   );
 }
