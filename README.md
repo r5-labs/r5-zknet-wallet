@@ -1,33 +1,17 @@
-# R5 ZKNet Wallet
+# Reown AppKit Example using wagmi (Vite + React)
 
-Community and open source implementation of the R5 ZKNet browser wallet in TypeScript. Contributions are welcome. **The project is currently under development and does not have the basic functionality working.**
+This is a [Vite](https://vitejs.dev) project together with React.
 
-## Run Locally
+## Usage
 
-To run the R5 ZKNet Wallet locally, first clone and navigate to its code repository:
+1. Go to [Reown Cloud](https://cloud.reown.com) and create a new project.
+2. Copy your `Project ID`
+3. Rename `.env.example` to `.env` and paste your `Project ID` as the value for `VITE_PROJECT_ID`
+4. Run `pnpm install` to install dependencies
+5. Run `pnpm run dev` to start the development server
 
-```bash
-git clone https://github.com/r5-labs/r5-zknet-wallet && cd r5-zknet-wallet
-```
+## Resources
 
-You can then install all dependencies:
-
-```bash
-npm install
-```
-
-Once all dependencies are installed, you can run it:
-
-```bash
-npm start
-```
-
-This should start the R5 ZKNet Wallet in your `localhost:3000`.
-
-## Build
-
-You can build the souce code by running:
-
-```bash
-npm run build
-```
+- [Reown — Docs](https://docs.reown.com)
+- [Vite — GitHub](https://github.com/vitejs/vite)
+- [Vite — Docs](https://vitejs.dev/guide/)
