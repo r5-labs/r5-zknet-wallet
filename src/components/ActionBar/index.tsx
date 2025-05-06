@@ -6,6 +6,7 @@ import { LuArrowDownToLine } from "react-icons/lu";
 import { LuArrowUpToLine } from "react-icons/lu";
 import { BsTrash } from "react-icons/bs";
 import { LuArrowUpRight } from "react-icons/lu";
+import { useZkContext } from "../../contexts/ZkContext";
 
 const ReceiveIcon = BsQrCode as React.FC<React.PropsWithChildren>;
 const DepositIcon = LuArrowDownToLine as React.FC<React.PropsWithChildren>;
@@ -15,18 +16,32 @@ const DestroyIcon = BsTrash as React.FC<React.PropsWithChildren>;
 
 export function ActionBar() {
   const [showReceiveQR, setShowReceiveQR] = useState(false);
+  const { destoryAccount, depositFunds, withdrawFunds } = useZkContext()
+
+  const handleDeposit = () => {
+    depositFunds(BigInt(1e18))
+  }
+
+
+  const handleWithdraw = () => {
+    withdrawFunds(BigInt(1e18))
+  }
+
+  const handleDestory = () => {
+    destoryAccount()
+  }
 
   return (
     <>
       <BoxContentParent>
         <BoxContent>
-          <ButtonRound title="Deposit Funds">
+          <ButtonRound title="Deposit Funds" onClick={handleDeposit}>
             <DepositIcon />
           </ButtonRound>
-          <ButtonRound title="Withdraw Funds">
+          <ButtonRound title="Withdraw Funds" onClick={handleWithdraw}>
             <SendExternalIcon />
           </ButtonRound>
-          <ButtonRound title="Destroy Account">
+          <ButtonRound title="Destroy Account"  onClick={handleDestory}>
             <DestroyIcon />
           </ButtonRound>
           <ButtonRound title="Send Transaction">

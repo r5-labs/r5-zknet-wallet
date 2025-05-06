@@ -17,6 +17,7 @@ import { Header } from "./components/Header";
 import { ActionBar } from "./components/ActionBar";
 import { Balance } from "./components/Balance";
 import { TxHistory } from "./components/TxHistory";
+import { ZkContextProvider } from './contexts/ZkContext';
 
 const queryClient = new QueryClient()
 
@@ -40,27 +41,30 @@ createAppKit({
 })
 
 export function App() {
+
   return (
     <WagmiProvider config={wagmiAdapter.wagmiConfig}>
       <QueryClientProvider client={queryClient}>
-        <div className="App">
-          <FullPageBox>
-            <FullContainerBox>
-              <Header />
-              <Divider />
-              <BoxSection>
-                <Balance />
-                <ActionBar />
-              </BoxSection>
-              <Divider />
-              <BoxSection>
-                <TxHistory />
-              </BoxSection>
-              <Divider />
-              <Link href="#">Need help with your ZKNet wallet?</Link>
-            </FullContainerBox>
-          </FullPageBox>
-        </div>
+        <ZkContextProvider>
+          <div className="App">
+            <FullPageBox>
+              <FullContainerBox>
+                <Header />
+                <Divider />
+                <BoxSection>
+                  <Balance />
+                  <ActionBar />
+                </BoxSection>
+                <Divider />
+                <BoxSection>
+                  <TxHistory />
+                </BoxSection>
+                <Divider />
+                <Link href="#">Need help with your ZKNet wallet?</Link>
+              </FullContainerBox>
+            </FullPageBox>
+          </div>
+        </ZkContextProvider>
       </QueryClientProvider>
     </WagmiProvider>
   )

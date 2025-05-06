@@ -2,19 +2,23 @@ import {
   BoxContent,
   BoxContentParent,
   BoxHeader,
+  ButtonPrimary,
   ButtonSecondary,
   Spacer
 } from "../../theme";
 import { FaMask } from "react-icons/fa";
 import { useAppKit, useAppKitAccount, useDisconnect } from "@reown/appkit/react";
+import { useZkContext } from "../../contexts/ZkContext";
 
 const StealthIcon = FaMask as React.FC<React.PropsWithChildren>;
 
 export function Header() {
   const { open } = useAppKit();
-  const { address, isConnected } =
+  const { isConnected } =
     useAppKitAccount();
-    const { disconnect } = useDisconnect();
+  const { disconnect } = useDisconnect();
+
+  const { zkAccount, createWallet } = useZkContext()
 
   const handleConnect = () => {
     open({ view: "Connect", namespace: "eip155" });
@@ -23,6 +27,13 @@ export function Header() {
   const handleDisConnect = () => {
     disconnect();
   }
+
+  
+  const handleCreateWallet = () => {
+    createWallet()
+  }
+
+
 
   return (
     <BoxHeader>
@@ -35,7 +46,15 @@ export function Header() {
           )}
         </BoxContent>
         <Spacer />
-        {isConnected && address && <BoxContent><StealthIcon />{address}</BoxContent>}
+        {isConnected &&
+          <BoxContent>
+            {zkAccount ?
+              <>
+                <StealthIcon />{zkAccount ?? ''}
+              </> :
+              <ButtonPrimary onClick={() => handleCreateWallet()}>Create Account</ButtonPrimary>}
+          </BoxContent>
+        }
       </BoxContentParent>
     </BoxHeader>
   );
