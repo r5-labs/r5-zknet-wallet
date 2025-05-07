@@ -19,7 +19,6 @@ export const metadata = {
 
 const r5ChainId = testnetChainId
 
-console.log(r5ChainId, testnetRPCUrl)
 export const r5network = defineChain({
   id: r5ChainId,
   name: 'R5 Test Network',
@@ -32,6 +31,9 @@ export const r5network = defineChain({
   },
   rpcUrls: {
     default: {
+      http: [testnetRPCUrl],
+    },
+    public: {
       http: [testnetRPCUrl],
     },
   },

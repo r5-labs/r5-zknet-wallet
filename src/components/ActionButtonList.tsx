@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { useDisconnect, useAppKit, useAppKitNetwork, useAppKitAccount } from '@reown/appkit/react'
 import { parseGwei, type Address } from 'viem'
 import { useEstimateGas, useSendTransaction, useSignMessage, useBalance } from 'wagmi'
-import { networks } from '../config'
+import { networks, config } from '../config'
 
 // test transaction
 const TEST_TX = {
@@ -26,7 +26,8 @@ export const ActionButtonList = ({ sendHash, sendSignMsg, sendBalance }: ActionB
   const { data: hash, sendTransaction, } = useSendTransaction(); // Wagmi hook to send a transaction
   const { signMessageAsync } = useSignMessage() // Wagmi hook to sign a message
   const { refetch } = useBalance({
-    address: address as Address
+    address: address as Address,
+    config
   }); // Wagmi hook to get the balance
 
 

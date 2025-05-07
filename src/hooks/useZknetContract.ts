@@ -15,8 +15,7 @@ const useZknetContract = () => {
     } else return undefined;
   }, [address]);
 
-  const { writeContractAsync } = useWriteContract();
-  const { writeContract, isPending, isSuccess, error } = useWriteContract();
+  const { writeContract, writeContractAsync, isPending, isSuccess, error } = useWriteContract();
   const { data: zkAccount, refetch } = useReadContract({
     abi: ZknetABI,
     address: testnetZknetAddress,

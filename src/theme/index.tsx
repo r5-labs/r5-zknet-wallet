@@ -481,7 +481,13 @@ export const ModalBackground = styled.div<{ visible: boolean }>`
   z-index: 3;
 `;
 
-export const ModalContainer = styled.div<{ exiting: boolean }>`
+interface ModalContainerProps {
+  exiting: boolean;
+}
+
+export const ModalContainer = styled.div.withConfig({
+  shouldForwardProp: (prop) => prop !== 'exiting',
+})<ModalContainerProps>`
   position: relative;
   display: flex;
   flex-direction: column;
