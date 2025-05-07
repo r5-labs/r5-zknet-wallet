@@ -11,9 +11,9 @@ if (!projectId) {
 }
 
 export const metadata = {
-  name: 'AppKit',
-  description: 'AppKit Example',
-  url: 'https://reown.com', // origin must match your domain & subdomain
+  name: 'zkNet Web Wallet',
+  description: 'zkNet Web Wallet',
+  url: 'https://zknet.r5.network/', // origin must match your domain & subdomain
   icons: ['https://avatars.githubusercontent.com/u/179229932']
 }
 
@@ -37,7 +37,6 @@ export const r5network = defineChain({
   },
 });
 
-// for custom networks visit -> https://docs.reown.com/appkit/react/core/custom-networks
 export const networks = [r5network] as [AppKitNetwork, ...AppKitNetwork[]]
 
 //Set up the Wagmi Adapter (Config)
