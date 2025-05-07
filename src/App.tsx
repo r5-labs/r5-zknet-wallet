@@ -8,15 +8,13 @@ import { projectId, metadata, networks, wagmiAdapter } from './config'
 import "./App.css";
 import {
   BoxSection,
-  Divider,
   FullContainerBox,
-  FullPageBox,
-  Link
+  FullPageBox
 } from "./theme";
 import { Header } from "./components/Header";
 import { ActionBar } from "./components/ActionBar";
 import { Balance } from "./components/Balance";
-import { TxHistory } from "./components/TxHistory";
+// import { TxHistory } from "./components/TxHistory";
 import { ZkContextProvider } from './contexts/ZkContext';
 
 const queryClient = new QueryClient()
@@ -50,17 +48,10 @@ export function App() {
             <FullPageBox>
               <FullContainerBox>
                 <Header />
-                <Divider />
                 <BoxSection>
                   <Balance />
                   <ActionBar />
                 </BoxSection>
-                <Divider />
-                <BoxSection>
-                  <TxHistory />
-                </BoxSection>
-                <Divider />
-                <Link href="#">Need help with your ZKNet wallet?</Link>
               </FullContainerBox>
             </FullPageBox>
           </div>

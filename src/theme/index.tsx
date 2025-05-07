@@ -7,7 +7,7 @@ export const colorBoxBackground =
 export const colorGlassBackground =
   "radial-gradient(circle, rgba(255, 255, 255, 0.075) 0%, rgba(255, 255, 255, 0.03) 100%)";
 export const colorGlassBackgroundModal =
-  "radial-gradient(circle, rgba(255, 255, 255, 0.75) 0%, rgba(255, 255, 255, 0.5) 100%)";
+  "radial-gradient(circle, rgba(255, 255, 255, 0.85) 0%, rgba(255, 255, 255, 0.7) 100%)";
 export const colorGlassBackgroundBlur = "rgba(0, 0, 0, 0.5)";
 export const colorGlassBorder = "rgba(255, 255, 255, 0.1)";
 export const colorPrimary = "#459381";
@@ -237,8 +237,9 @@ export const FullPageBox = styled.div`
   border: none;
   background: transparent;
   width: 100%;
-  height: calc(100vh - ${paddingHigh} - ${paddingHigh});
   min-width: 320px;
+  max-height: calc(100vh - ${paddingHigh} - ${paddingHigh});
+  height: 720px;
   justify-content: center;
   align-items: center;
   gap: ${defaultGap};
@@ -429,7 +430,7 @@ export const ModalBackground = styled.div<{ visible: boolean }>`
   justify-content: center;
   background: ${colorGlassBackgroundBlur};
   backdrop-filter: blur(5px);
-  border-radius: 0;
+  border-radius: ${borderRadiusDefault};
   z-index: 3;
 `;
 

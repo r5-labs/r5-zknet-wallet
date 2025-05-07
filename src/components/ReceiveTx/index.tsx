@@ -8,6 +8,7 @@ import {
 } from "../../theme";
 import { Modal } from "../Modal";
 import { GoCopy, GoCheck } from "react-icons/go";
+import { useZkContext } from "../../contexts/ZkContext";
 
 interface ReceiveTxProps {
   open: boolean;
@@ -20,6 +21,8 @@ const CheckIcon = GoCheck as unknown as React.FC<React.SVGProps<SVGSVGElement>>;
 
 export function ReceiveTx({ open, onClose, address }: ReceiveTxProps) {
   const [isCopied, setIsCopied] = useState(false);
+
+  const { zkAccount } = useZkContext();
 
   const handleCopy = async () => {
     try {
@@ -48,7 +51,7 @@ export function ReceiveTx({ open, onClose, address }: ReceiveTxProps) {
           margin: "auto"
         }}
       >
-         <QRCodeCanvas value={address} size={200} />
+         <QRCodeCanvas value={zkAccount} size={200} />
       </div>
       <div
         style={{
@@ -59,7 +62,7 @@ export function ReceiveTx({ open, onClose, address }: ReceiveTxProps) {
         }}
       >
         <Text style={{ wordBreak: "break-all", color: colorSemiBlack }}>
-          {address}
+          {zkAccount}
         </Text>
         <span
           onClick={handleCopy}
