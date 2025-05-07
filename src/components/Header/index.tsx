@@ -134,7 +134,7 @@ export function Header() {
                     </span>
                   </BoxContent>
                   <SmallText style={{ color: colorLightGray }}>
-                    Your Private Internal Address (PIA)
+                    Your zkNet Wallet Address
                   </SmallText>
                 </BoxContentParent>
               </>
@@ -142,10 +142,10 @@ export function Header() {
               <>
                 <FullContainerBox style={{ margin: 15, padding: 15, gap: 20 }}>
                   <TextSubTitle>
-                    You don't have an active Private Internal Address (PIA)
+                    You don't have an active zkNet wallet address
                   </TextSubTitle>
                   <Text>
-                    You will need to create a new Private Internal Address (PIA)
+                    You will need to create a new zkNet wallet address
                     to use the zkNet protocol. Use the button below to create
                     one - there's no fees other than regular transaction gas
                     fees. If you're new to zkNet, you can{" "}
@@ -165,7 +165,7 @@ export function Header() {
                   </Text>
                   <Divider />
                   <ButtonPrimary onClick={() => handleCreateWallet()}>
-                    Create New PIA
+                    Create zkNet Wallet
                   </ButtonPrimary>
                 </FullContainerBox>
               </>

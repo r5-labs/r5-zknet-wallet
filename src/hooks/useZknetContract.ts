@@ -57,18 +57,33 @@ const useZknetContract = () => {
   );
 
   const withdrawFunds = useCallback(
-    (value: bigint) => {
-      if (value > 0 && account) {
-        writeContract({
+    async (recipient: string, value: bigint) => {
+      if (value > 0 && isAddress(recipient)) {
+        return await writeContractAsync({
           abi: ZknetABI,
           address: testnetZknetAddress,
           functionName: "r5_balanceTransferExternal",
-          args: [account, value],
+          args: [recipient, value],
           value: 0n
         });
       }
     },
-    [writeContract, account]
+    [writeContractAsync]
+  );
+
+  const transferFunds = useCallback(
+    async (recipient: string, value: bigint) => {
+      if (value > 0 && recipient) {
+        return await writeContractAsync({
+          abi: ZknetABI,
+          address: testnetZknetAddress,
+          functionName: "r5_balanceTransferInternal",
+          args: [recipient, value],
+          value: 0n
+        });
+      }
+    },
+    [writeContractAsync]
   );
 
   const destoryAccount = useCallback(() => {
@@ -92,6 +107,7 @@ const useZknetContract = () => {
     createWallet,
     depositFunds,
     withdrawFunds,
+    transferFunds,
     destoryAccount,
     isPending,
     isSuccess,

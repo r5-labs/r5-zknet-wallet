@@ -11,7 +11,7 @@ function formatZkBalance(balance: bigint | number | string): string {
   const fractional = raw % divisor;
 
   // Convert fractional to string with 18 digits, remove trailing zeros, then slice to 4 decimal places
-  let fractionStr = fractional.toString().padStart(18, '0').slice(0, 4).replace(/0+$/, '');
+  let fractionStr = fractional.toString().padStart(18, '0').slice(0, 6).replace(/0+$/, '');
 
   const formattedWhole = whole.toLocaleString(); // Adds commas for better formatting
 

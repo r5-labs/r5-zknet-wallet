@@ -75,7 +75,7 @@ export function ActionBar() {
                 <DestroyIcon />
               </ButtonRound>
               <ButtonRound
-                title="Send Internal Transaction"
+                title="Send Private Transaction"
                 onClick={() => setShowSendInternal(true)}
               >
                 <SendInternalIcon />

@@ -8,7 +8,7 @@ export const colorGlassBackground =
   "radial-gradient(circle, rgba(255, 255, 255, 0.075) 0%, rgba(255, 255, 255, 0.03) 100%)";
 export const colorGlassBackgroundModal =
   "radial-gradient(circle, rgba(255, 255, 255, 0.85) 0%, rgba(255, 255, 255, 0.7) 100%)";
-export const colorGlassBackgroundBlur = "rgba(0, 0, 0, 0.5)";
+export const colorGlassBackgroundBlur = "rgba(0, 0, 0, 0.6)";
 export const colorGlassBorder = "rgba(255, 255, 255, 0.1)";
 export const colorPrimary = "#459381";
 export const colorSecondary = "#16222B";

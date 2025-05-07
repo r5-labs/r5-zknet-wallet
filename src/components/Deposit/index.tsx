@@ -29,13 +29,16 @@ export function Deposit({ open, onClose }: DepositProps) {
     try {
       const parsed = ethers.parseUnits(amount, 18);
 
+      // Clear inputs
+      setAmount("")
+
       // Close deposit modal and show loading
       onClose();
       setIsLoading(true);
 
       // Call deposit function and wait for confirmation
       const tx = await depositFunds(parsed);
-      await tx.wait(); // Wait for confirmation
+      await tx; // Wait for confirmation
 
       // Hide loading and show confirmation
       setIsLoading(false);
@@ -45,7 +48,7 @@ export function Deposit({ open, onClose }: DepositProps) {
       setTimeout(() => {
         setIsConfirmed(false);
         setAmount(""); // Reset input
-      }, 3000);
+      }, 15000);
     } catch (err) {
       console.error("Transaction failed:", err);
       setIsLoading(false);
@@ -57,10 +60,10 @@ export function Deposit({ open, onClose }: DepositProps) {
     <>
       <Modal open={open} onClose={onClose}>
         <h3 style={{ marginBottom: "-10px", color: colorSemiBlack }}>
-          Deposit Funds to PIA
+          Deposit to zkNet Wallet
         </h3>
         <Text style={{ color: colorSemiBlack }}>
-          Deposit R5 from your regular wallet into your PIA.
+          Deposit R5 from your regular wallet to your zkNet wallet.
         </Text>
         <InputModal
           style={{
@@ -86,7 +89,7 @@ export function Deposit({ open, onClose }: DepositProps) {
             Cancel
           </ButtonSecondaryModal>
           <ButtonPrimary style={{ width: "100%" }} onClick={handleDeposit}>
-            Confirm Deposit
+            Confirm
           </ButtonPrimary>
         </div>
       </Modal>
