@@ -14,13 +14,13 @@ export function LoadingTx({ open, onClose }: LoadingTxProps) {
 
   return (
     <Modal open={open} onClose={onClose}>
+      <Loading />
       <h3 style={{ marginBottom: "-10px", color: colorSemiBlack }}>
         Processing Transaction
       </h3>
       <Text style={{ color: colorSemiBlack }}>
-        Your transaction is currently being processed. Please wait.
+        Please confirm the transaction on your wallet to proceed.
       </Text>
-      <Loading />
     </Modal>
   );
 }
