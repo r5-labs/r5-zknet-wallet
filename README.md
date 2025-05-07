@@ -99,5 +99,5 @@ These deployments are decentralized and have no owner calls, ensuring trustless 
 
 ## Further Reading
 
-[I. zkNet Non-Technical Documentation](https://docs.r5.network/about-r5/zknet-privacy)
-[II. zkNet API Function Rundown](https://docs.r5.network/for-developers/zknet-api)
+- [zkNet Non-Technical Documentation](https://docs.r5.network/about-r5/zknet-privacy)
+- [zkNet API Function Rundown](https://docs.r5.network/for-developers/zknet-api)
