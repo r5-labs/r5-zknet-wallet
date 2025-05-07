@@ -38,7 +38,7 @@ const useZknetContract = () => {
             abi: ZknetABI,
             address: testnetZknetAddress,
             functionName: 'r5_accountCreate',
-            args: ['test'],
+            args: ['defaultSalt'],
             value: 0n
         })
     }, [writeContract])

@@ -13,20 +13,19 @@ import { useZkContext } from "../../contexts/ZkContext";
 interface ReceiveTxProps {
   open: boolean;
   onClose: () => void;
-  address: string;
 }
 
 const CopyIcon = GoCopy as unknown as React.FC<React.SVGProps<SVGSVGElement>>;
 const CheckIcon = GoCheck as unknown as React.FC<React.SVGProps<SVGSVGElement>>;
 
-export function ReceiveTx({ open, onClose, address }: ReceiveTxProps) {
+export function ReceiveTx({ open, onClose }: ReceiveTxProps) {
   const [isCopied, setIsCopied] = useState(false);
 
   const { zkAccount } = useZkContext();
 
   const handleCopy = async () => {
     try {
-      await navigator.clipboard.writeText(address);
+      await navigator.clipboard.writeText(zkAccount);
       setIsCopied(true);
       setTimeout(() => setIsCopied(false), 2000);
     } catch (err) {

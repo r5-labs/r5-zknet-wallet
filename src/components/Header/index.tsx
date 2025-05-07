@@ -78,9 +78,9 @@ export function Header() {
                 <Text style={{ marginTop: "-20px" }}>
                   To use the zkNet protocol, first connect your R5 Wallet.
                 </Text>
-                <ButtonSecondary onClick={() => handleConnect()}>
+                <ButtonPrimary onClick={() => handleConnect()}>
                   Connect Wallet
-                </ButtonSecondary>
+                </ButtonPrimary>
               </BoxContentParent>
             </>
           ) : (

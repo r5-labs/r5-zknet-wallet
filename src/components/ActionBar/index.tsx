@@ -7,6 +7,9 @@ import { LuArrowUpToLine } from "react-icons/lu";
 import { BsTrash } from "react-icons/bs";
 import { LuArrowUpRight } from "react-icons/lu";
 import { useZkContext } from "../../contexts/ZkContext";
+import { SendExternal } from "../SendExternal";
+import { SendInternal } from "../SendInternal";
+import { Deposit } from "../Deposit";
 
 const ReceiveIcon = BsQrCode as React.FC<React.PropsWithChildren>;
 const DepositIcon = LuArrowDownToLine as React.FC<React.PropsWithChildren>;
@@ -16,16 +19,31 @@ const DestroyIcon = BsTrash as React.FC<React.PropsWithChildren>;
 
 export function ActionBar() {
   const [showReceiveQR, setShowReceiveQR] = useState(false);
-  const { destoryAccount, depositFunds, withdrawFunds, zkAccount } =
+  const [showSendExternal, setShowSendExternal] = useState(false);
+  const [showSendInternal, setShowSendInternal] = useState(false);
+  const [showDeposit, setShowDeposit] = useState(false);
+  const { destoryAccount, /* depositFunds, */ /* withdrawFunds, */ zkAccount } =
     useZkContext();
 
-  const handleDeposit = () => {
+  /**
+   * Example handler for depositing funds into PIA. It directly deposits
+   * 1 R5 into the active PIA.
+   */
+  /*
+    const handleDeposit = () => {
     depositFunds(BigInt(1e18));
   };
+  */
 
+  /**
+   * Example handler for withdrawing funds (send external transaction)
+   * where 1 R5 is sent back to the PIA owner on the main ledger.
+   */
+  /*
   const handleWithdraw = () => {
     withdrawFunds(BigInt(1e18));
   };
+  */
 
   const handleDestory = () => {
     destoryAccount();
@@ -35,18 +53,30 @@ export function ActionBar() {
     <>
       {zkAccount ? (
         <>
-          <BoxContentParent style={{ marginBottom: '2rem' }}>
+          <BoxContentParent style={{ marginBottom: "2rem" }}>
             <BoxContent>
-              <ButtonRound title="Deposit Funds" onClick={handleDeposit}>
+              <ButtonRound
+                title="Deposit Funds"
+                onClick={() => setShowDeposit(true)}
+              >
                 <DepositIcon />
               </ButtonRound>
-              <ButtonRound title="Withdraw Funds" onClick={handleWithdraw}>
+              <ButtonRound
+                title="Sent External Transaction"
+                onClick={() => setShowSendExternal(true)}
+              >
                 <SendExternalIcon />
               </ButtonRound>
-              <ButtonRound title="Destroy Account" onClick={handleDestory}>
+              <ButtonRound
+                title="Destroy Account & Withdraw Funds"
+                onClick={handleDestory}
+              >
                 <DestroyIcon />
               </ButtonRound>
-              <ButtonRound title="Send Transaction">
+              <ButtonRound
+                title="Send Internal Transaction"
+                onClick={() => setShowSendInternal(true)}
+              >
                 <SendInternalIcon />
               </ButtonRound>
               <ButtonRound
@@ -61,8 +91,16 @@ export function ActionBar() {
           <ReceiveTx
             open={showReceiveQR}
             onClose={() => setShowReceiveQR(false)}
-            address={"zk"}
           />
+          <SendExternal
+            open={showSendExternal}
+            onClose={() => setShowSendExternal(false)}
+          />
+          <SendInternal
+            open={showSendInternal}
+            onClose={() => setShowSendInternal(false)}
+          />
+          <Deposit open={showDeposit} onClose={() => setShowDeposit(false)} />
         </>
       ) : (
         <></>

@@ -161,8 +161,8 @@ export const ButtonSecondary = styled.button`
   font-size: ${fontSizeH6};
   text-align: center;
   border-radius: ${borderRadiusRound};
-  border: ${buttonBorder};
-  background: ${colorPrimary};
+  border: 1px solid ${colorPrimary};
+  background: transparent;
   color: ${colorText};
   text-decoration: none;
   display: flex;
@@ -174,6 +174,41 @@ export const ButtonSecondary = styled.button`
   z-index: 1;
   &:hover {
     background: ${colorAccent};
+    color: ${colorText};
+  }
+  &:active {
+    border: none;
+  }
+  &:disabled {
+    cursor: not-allowed;
+  }
+  > * {
+    user-select: none;
+  }
+`;
+
+export const ButtonSecondaryModal = styled.button`
+  padding: ${buttonPaddingDefault};
+  margin: ${marginLow};
+  width: ${buttonWidthDefault};
+  font-weight: ${fontWeight};
+  font-size: ${fontSizeH6};
+  text-align: center;
+  border-radius: ${borderRadiusRound};
+  border: 1px solid ${colorPrimary};
+  background: transparent;
+  color: ${colorSemiBlack};
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  flex-wrap: nowrap;
+  align-items: center;
+  cursor: pointer;
+  position: relative;
+  z-index: 1;
+  &:hover {
+    background: ${colorAccent};
+    color: ${colorText};
   }
   &:active {
     border: none;
@@ -383,6 +418,17 @@ export const Input = styled.input`
   border: 1px solid ${colorGlassBorder};
   text-align: center;
   background: ${colorGlassBackground};
+  z-index: 2;
+`;
+
+export const InputModal = styled.input`
+  font-size: 11pt;
+  border-radius: ${borderRadiusDefault};
+  padding: ${buttonPaddingDefault};
+  color: ${colorDarkGray};
+  border: 1px solid ${colorGlassBorder};
+  text-align: center;
+  background: ${colorWhite};
   z-index: 2;
 `;
 
