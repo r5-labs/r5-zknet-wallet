@@ -33,7 +33,8 @@ export function SendExternal({ open, onClose }: SendExternalProps) {
       </Text>
       <InputModal
         style={{
-          minWidth: "48ch"
+          width: "48ch",
+          maxWidth: "100%"
         }}
         placeholder="Enter public address, starting with 0x..."
         value={recipient}
@@ -41,7 +42,8 @@ export function SendExternal({ open, onClose }: SendExternalProps) {
       />
       <InputModal
         style={{
-          minWidth: "48ch"
+          width: "48ch",
+          maxWidth: "100%"
         }}
         type="number"
         placeholder="Enter the amount to send..."

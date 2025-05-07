@@ -26,6 +26,7 @@ import {
 } from "@reown/appkit/react";
 import { useZkContext } from "../../contexts/ZkContext";
 import ZkLogo from "../../assets/zknet-wallet.png";
+import { sliceAddress } from "../../utils/sliceAddress";
 
 const StealthIcon = FaMask as React.FC<React.PropsWithChildren>;
 const CopyIcon = GoCopy as unknown as React.FC<React.SVGProps<SVGSVGElement>>;
@@ -102,10 +103,20 @@ export function Header() {
           <BoxContent>
             {zkAccount ? (
               <>
-                <BoxContentParent>
+                <BoxContentParent >
                   <BoxContent>
                     <StealthIcon />
-                    {zkAccount ?? ""}
+                    <Text
+                      style={{
+                        fontSize: "1rem",
+                        flexWrap: "wrap",
+                        overflow: 'hidden',
+                        whiteSpace: 'pre-wrap',
+                        maxWidth: "100%"
+                      }}
+                    >
+                      {zkAccount ? `${sliceAddress(zkAccount)}` : "N/A"}
+                    </Text>
                     <span
                       onClick={handleCopy}
                       title="Copy Address"

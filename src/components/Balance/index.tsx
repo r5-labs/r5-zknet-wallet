@@ -25,7 +25,7 @@ export function Balance() {
     <>
       {zkAccount ? (
         <BoxContentParent>
-          <FullContainerBox style={{ margin: 15, width: '100%' }}>
+          <FullContainerBox style={{ margin: 15, maxWidth: '85%' }}>
             <BoxContent>
               <img src={R5Logo} alt="logo" />
               <TextTitle style={{ margin: "0" }}>

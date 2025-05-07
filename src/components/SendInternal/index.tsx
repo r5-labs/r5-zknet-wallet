@@ -33,7 +33,8 @@ export function SendInternal({ open, onClose }: SendInternalProps) {
       </Text>
       <InputModal
         style={{
-          minWidth: "70ch"
+          width: "70ch",
+          maxWidth: "100%"
         }}
         placeholder="Enter PIA, starting with zk..."
         value={recipient}
@@ -41,7 +42,8 @@ export function SendInternal({ open, onClose }: SendInternalProps) {
       />
       <InputModal
         style={{
-          minWidth: "48ch"
+          width: "70ch",
+          maxWidth: "100%"
         }}
         type="number"
         placeholder="Enter the amount to send..."

@@ -223,6 +223,7 @@ export const ButtonSecondaryModal = styled.button`
 
 export const ButtonRound = styled.button`
   padding: ${paddingLow};
+  margin: auto;
   width: ${buttonRoundSize};
   height: ${buttonRoundSize};
   font-weight: ${fontWeight};

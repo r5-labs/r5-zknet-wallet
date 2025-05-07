@@ -10,6 +10,9 @@ import { useZkContext } from "../../contexts/ZkContext";
 import { SendExternal } from "../SendExternal";
 import { SendInternal } from "../SendInternal";
 import { Deposit } from "../Deposit";
+import { LoadingTx } from "../LoadingTx";
+import { ConfirmedTx } from "../ConfirmedTx";
+import { Destroy } from "../Destroy";
 
 const ReceiveIcon = BsQrCode as React.FC<React.PropsWithChildren>;
 const DepositIcon = LuArrowDownToLine as React.FC<React.PropsWithChildren>;
@@ -22,8 +25,10 @@ export function ActionBar() {
   const [showSendExternal, setShowSendExternal] = useState(false);
   const [showSendInternal, setShowSendInternal] = useState(false);
   const [showDeposit, setShowDeposit] = useState(false);
-  const { destoryAccount, /* depositFunds, */ /* withdrawFunds, */ zkAccount } =
-    useZkContext();
+  const [showLoadingTx, setShowLoadingTx] = useState(false);
+  const [showConfirmedTx, setShowConfirmedTx] = useState(false);
+  const [showDestroy, setShowDestroy] = useState(false);
+  const { /* depositFunds, */ /* withdrawFunds, */ zkAccount } = useZkContext();
 
   /**
    * Example handler for depositing funds into PIA. It directly deposits
@@ -45,16 +50,12 @@ export function ActionBar() {
   };
   */
 
-  const handleDestory = () => {
-    destoryAccount();
-  };
-
   return (
     <>
       {zkAccount ? (
         <>
           <BoxContentParent style={{ marginBottom: "2rem" }}>
-            <BoxContent>
+            <BoxContent style={{ gap: 0 }}>
               <ButtonRound
                 title="Deposit Funds"
                 onClick={() => setShowDeposit(true)}
@@ -69,7 +70,7 @@ export function ActionBar() {
               </ButtonRound>
               <ButtonRound
                 title="Destroy Account & Withdraw Funds"
-                onClick={handleDestory}
+                onClick={() => setShowDestroy(true)}
               >
                 <DestroyIcon />
               </ButtonRound>
@@ -101,6 +102,15 @@ export function ActionBar() {
             onClose={() => setShowSendInternal(false)}
           />
           <Deposit open={showDeposit} onClose={() => setShowDeposit(false)} />
+          <Destroy open={showDestroy} onClose={() => setShowDestroy(false)} />
+          <LoadingTx
+            open={showLoadingTx}
+            onClose={() => setShowLoadingTx(false)}
+          />
+          <ConfirmedTx
+            open={showConfirmedTx}
+            onClose={() => setShowConfirmedTx}
+          />
         </>
       ) : (
         <></>

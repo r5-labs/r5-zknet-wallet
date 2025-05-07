@@ -8,6 +8,7 @@ import {
 } from "../../theme";
 import { Modal } from "../Modal";
 import { useZkContext } from "../../contexts/ZkContext";
+import { ethers } from "ethers";
 
 interface DepositProps {
   open: boolean;
@@ -16,10 +17,20 @@ interface DepositProps {
 
 export function Deposit({ open, onClose }: DepositProps) {
   const [amount, setAmount] = useState("");
-  const { withdrawFunds } = useZkContext();
+  const { depositFunds } = useZkContext();
 
-  const handleWithdraw = () => {
-    withdrawFunds(BigInt(1e18));
+  const handleDeposit = () => {
+    // Basic validation
+    if (!amount || isNaN(Number(amount))) return;
+
+    try {
+      // Convert to BigInt with 18 decimals
+      const parsed = ethers.parseUnits(amount, 18);
+      // Pass BigInt to zkNet contract deposit function
+      depositFunds(parsed);
+    } catch (err) {
+      console.error("Failed to parse amount:", err);
+    }
   };
 
   return (
@@ -32,7 +43,8 @@ export function Deposit({ open, onClose }: DepositProps) {
       </Text>
       <InputModal
         style={{
-          minWidth: "48ch"
+          width: "48ch",
+          maxWidth: "100%"
         }}
         type="number"
         placeholder="Enter the amount to deposit..."
@@ -52,8 +64,8 @@ export function Deposit({ open, onClose }: DepositProps) {
         <ButtonSecondaryModal style={{ width: "100%" }} onClick={onClose}>
           Cancel
         </ButtonSecondaryModal>
-        <ButtonPrimary style={{ width: "100%" }} onClick={handleWithdraw}>
-          Send Transaction
+        <ButtonPrimary style={{ width: "100%" }} onClick={handleDeposit}>
+          Confirm Deposit
         </ButtonPrimary>
       </div>
     </Modal>
