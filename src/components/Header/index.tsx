@@ -14,7 +14,8 @@ import {
   Link,
   colorText,
   fontSize,
-  colorLightGray
+  colorLightGray,
+  SmallText
 } from "../../theme";
 import { FaMask } from "react-icons/fa";
 import { GoCopy, GoCheck } from "react-icons/go";
@@ -101,23 +102,30 @@ export function Header() {
           <BoxContent>
             {zkAccount ? (
               <>
-                <StealthIcon />
-                {zkAccount ?? ""}
-                <span
-                  onClick={handleCopy}
-                  title="Copy Address"
-                  style={{
-                    cursor: "pointer",
-                    display: "inline-flex",
-                    color: colorText
-                  }}
-                >
-                  {isCopied ? (
-                    <CheckIcon style={{ width: 12, height: 12 }} />
-                  ) : (
-                    <CopyIcon style={{ width: 12, height: 12 }} />
-                  )}
-                </span>
+                <BoxContentParent>
+                  <BoxContent>
+                    <StealthIcon />
+                    {zkAccount ?? ""}
+                    <span
+                      onClick={handleCopy}
+                      title="Copy Address"
+                      style={{
+                        cursor: "pointer",
+                        display: "inline-flex",
+                        color: colorText
+                      }}
+                    >
+                      {isCopied ? (
+                        <CheckIcon style={{ width: 12, height: 12 }} />
+                      ) : (
+                        <CopyIcon style={{ width: 12, height: 12 }} />
+                      )}
+                    </span>
+                  </BoxContent>
+                  <SmallText style={{ color: colorLightGray }}>
+                    Your Private Internal Address (PIA)
+                  </SmallText>
+                </BoxContentParent>
               </>
             ) : (
               <>
