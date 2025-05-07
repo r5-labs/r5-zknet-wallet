@@ -1,5 +1,6 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { ModalBackground, ModalContainer } from "../../theme";
+import { useOnClickOutside } from 'usehooks-ts'
 
 interface ModalProps {
   open: boolean;
@@ -8,8 +9,11 @@ interface ModalProps {
 }
 
 export function Modal({ open, onClose, children }: ModalProps) {
+  const ref = useRef<HTMLDivElement>(null!)
   const [visible, setVisible] = useState(open);
   const [exiting, setExiting] = useState(false);
+
+  useOnClickOutside(ref, () => onClose())
 
   useEffect(() => {
     if (open) {
@@ -29,15 +33,7 @@ export function Modal({ open, onClose, children }: ModalProps) {
 
   return (
     <ModalBackground visible={visible}>
-      <div
-        style={{
-          position: "absolute",
-          inset: 0,
-          zIndex: 0
-        }}
-        onClick={onClose}
-      />
-      <ModalContainer exiting={exiting} style={{ zIndex: 1 }}>
+      <ModalContainer ref={ref} exiting={exiting} style={{ zIndex: 1 }}>
         {children}
       </ModalContainer>
     </ModalBackground>
