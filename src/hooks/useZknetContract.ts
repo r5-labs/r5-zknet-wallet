@@ -86,9 +86,9 @@ const useZknetContract = () => {
     [writeContractAsync]
   );
 
-  const destoryAccount = useCallback(() => {
+  const destroyAccount = useCallback(async () => {
     if (account) {
-      writeContract({
+      return await writeContractAsync({
         abi: ZknetABI,
         address: testnetZknetAddress,
         functionName: "r5_accountDestroy",
@@ -108,7 +108,7 @@ const useZknetContract = () => {
     depositFunds,
     withdrawFunds,
     transferFunds,
-    destoryAccount,
+    destroyAccount,
     isPending,
     isSuccess,
     error,

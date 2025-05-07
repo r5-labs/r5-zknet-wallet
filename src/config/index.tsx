@@ -13,8 +13,8 @@ if (!projectId) {
 export const metadata = {
   name: 'zkNet Web Wallet',
   description: 'zkNet Web Wallet',
-  url: 'https://zknet.r5.network/', // origin must match your domain & subdomain
-  icons: ['https://avatars.githubusercontent.com/u/179229932']
+  url: 'https://zknet.r5.network/', // specified on reown cloud - recommended having strict cors policy
+  icons: ['https://raw.githubusercontent.com/r5-labs/marketing-kit/refs/heads/main/png/zknet-wallet.png']
 }
 
 const r5ChainId = testnetChainId
