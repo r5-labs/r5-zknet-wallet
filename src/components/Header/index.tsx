@@ -142,7 +142,7 @@ export function Header() {
               <>
                 <FullContainerBox style={{ margin: 15, padding: 15, gap: 20 }}>
                   <TextSubTitle>
-                    You don't have an active Private Internal Address (PIA).
+                    You don't have an active Private Internal Address (PIA)
                   </TextSubTitle>
                   <Text>
                     You will need to create a new Private Internal Address (PIA)

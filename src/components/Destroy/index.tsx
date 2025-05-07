@@ -17,6 +17,7 @@ export function Destroy({ open, onClose }: DestroyProps) {
 
   const handleDestory = () => {
     destoryAccount();
+    onClose();
   };
 
   return (
