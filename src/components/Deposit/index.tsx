@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+import { useState } from "react";
 import {
   ButtonPrimary,
   ButtonSecondaryModal,
@@ -11,9 +11,6 @@ import { LoadingTx } from "../LoadingTx";
 import { ConfirmedTx } from "../ConfirmedTx";
 import { useZkContext } from "../../contexts/ZkContext";
 import { ethers } from "ethers";
-import { useWaitForTransactionReceipt } from "wagmi";
-import { config } from "../../config";
-import { Address } from "viem";
 
 interface DepositProps {
   open: boolean;
@@ -24,14 +21,7 @@ export function Deposit({ open, onClose }: DepositProps) {
   const [amount, setAmount] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [isConfirmed, setIsConfirmed] = useState(false);
-  const [tx, setTx] = useState<Address | undefined>(undefined)
-  const result = useWaitForTransactionReceipt({ hash: tx, config })
   const { depositFunds } = useZkContext();
-
-  const txResult = useMemo(() => {
-    if (tx) return result
-    else return null
-  }, [tx, result])
 
   const handleDeposit = async () => {
     if (!amount || isNaN(Number(amount))) return;
@@ -48,27 +38,23 @@ export function Deposit({ open, onClose }: DepositProps) {
 
       // Call deposit function and wait for confirmation
       const tx = await depositFunds(parsed);
-      setTx(tx)
+      await tx; // Wait for confirmation
+
       // Hide loading and show confirmation
-      setAmount(""); // Reset input
+      setIsLoading(false);
+      setIsConfirmed(true);
+
+      // Auto-close confirmation after a delay
+      setTimeout(() => {
+        setIsConfirmed(false);
+        setAmount(""); // Reset input
+      }, 15000);
     } catch (err) {
       console.error("Transaction failed:", err);
       setIsLoading(false);
       setIsConfirmed(false);
     }
   };
-
-  useEffect(() => {
-    if (txResult && txResult.isSuccess) {
-      setTx(undefined)
-      setIsConfirmed(true);
-
-      // Auto-close confirmation after a delay
-      setTimeout(() => {
-        setIsConfirmed(false);
-      }, 15000);
-    }
-  }, [txResult])
 
   return (
     <>
