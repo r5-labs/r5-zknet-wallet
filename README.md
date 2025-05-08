@@ -81,7 +81,7 @@ We strongly recommend using the following canonical deployments to ensure securi
 
 ### Mainnet
 ```
-N/A
+0x1b9935414fdDF20444F47152dcfdDd8ce41F675c
 ```
 
 ### Testnet

@@ -22,7 +22,7 @@ const r5ChainId = testnetChainId
 console.log(r5ChainId, testnetRPCUrl)
 export const r5network = defineChain({
   id: r5ChainId,
-  name: 'R5 Test Network',
+  name: 'R5 Network',
   chainNamespace: "eip155",
   caipNetworkId: `eip155:${r5ChainId}`,
   nativeCurrency: {
