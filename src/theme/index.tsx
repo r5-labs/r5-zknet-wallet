@@ -476,7 +476,6 @@ export const ModalBackground = styled.div<{ visible: boolean }>`
   align-items: center;
   justify-content: center;
   background: ${colorGlassBackgroundBlur};
-  backdrop-filter: blur(5px);
   border-radius: ${borderRadiusDefault};
   z-index: 3;
 `;

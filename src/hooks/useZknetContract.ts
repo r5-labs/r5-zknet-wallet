@@ -34,11 +34,20 @@ const useZknetContract = () => {
   });
 
   const createWallet = useCallback(() => {
+    /**
+     * For additional security and to lessen the burden on the user,
+     * we generate a random 12-byte string to be used as salt, instead
+     * of asking the user to specify it.
+     */
+    const salt = [...Array(12)]
+      .map(() => Math.random().toString(36)[2])
+      .join("");
+  
     writeContract({
       abi: ZknetABI,
       address: testnetZknetAddress,
       functionName: "r5_accountCreate",
-      args: ["defaultSalt"],
+      args: [salt],
       value: 0n
     });
   }, [writeContract]);
